@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+Recipe List
+{% for entry in entries %}
+<p class=entry>
+    {{ entry.description }} &lt;{{ entry.author }}&gt;
+    <br>signed on {{ entry.skill }}<br>
+    {{ entry.ingredient }}
+</p>
+{% endfor %}
+
+
+{% endblock %}

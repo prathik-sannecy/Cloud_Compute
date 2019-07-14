@@ -12,7 +12,7 @@ app.add_url_rule('/',
                  view_func=RecipeBookMainPage.as_view('RecipeBookMainPage'),
                  methods=["GET"])
 
-app.add_url_rule('/sign/',
+app.add_url_rule('/RecipeList/',
                  view_func=RecipeList.as_view('RecipeList'),
                  methods=['GET'])
 

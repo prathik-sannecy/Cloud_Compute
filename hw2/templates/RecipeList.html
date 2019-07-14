@@ -1,14 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-
-Recipe List
-{% for entry in entries %}
-<p class=entry>
-    {{ entry.description }} &lt;{{ entry.author }}&gt;
-    <br>signed on {{ entry.skill }}<br>
-    {{ entry.ingredient }}
-</p>
-{% endfor %}
-
-
+<h2>Recipe List</h2>
+    {% for recipe in recipes %}
+        <p class=recipe>
+            {{ recipe.title }} by {{ recipe.author }}<br>
+            Ingredients: {{ recipe.ingredient }}<br>
+            Time needed: {{ recipe.time }}<br>
+            Skill level: {{ recipe.skill }}<br>
+            Description: {{ recipe.description }}
+        </p>
+    {% endfor %}
 {% endblock %}

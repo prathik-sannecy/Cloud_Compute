@@ -19,15 +19,15 @@ class model(Model):
 
     def select(self):
         """
-        Returns recipes list of lists
+        Returns recipes list of dictionary
         Each list in recipes contains: title, author, ingredient, time, skill, description
-        :return: List of lists
+        :return: List of dictionary
         """
         return self.recipes
 
     def insert(self, title, author, ingredient, time, skill, description):
         """
-        Appends a new list of values representing new message into recipes
+        Appends a new dictionary of values representing new message into recipes
         :param title: String
         :param author: String
         :param ingredient: String

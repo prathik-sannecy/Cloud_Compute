@@ -5,6 +5,7 @@ import flask
 from flask.views import MethodView
 from RecipeBookMainPage import RecipeBookMainPage
 from RecipeList import RecipeList
+from CreateRecipe import CreateRecipe
 
 app = flask.Flask(__name__)       # our Flask app
 

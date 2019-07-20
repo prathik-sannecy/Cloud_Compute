@@ -3,9 +3,12 @@
     <h2>Enter Recipe</h2>
     <form action="{{ url_for('CreateRecipe') }}" method=post>
 	<p class="heading">Title: <input type=text name=title>
-	<p class="heading">Email: <input type=text name=email>
-        <p class="heading">Message:
-	<textarea rows=5 cols=50 name=message></textarea></p>
-	<p><input type=submit value=Sign></p>
+	<p class="heading">Author: <input type=text name=author>
+	<p class="heading">Ingredients: <input type=text name=ingredient>
+	<p class="heading">Time Taken: <input type=text name=time>
+	<p class="heading">Skill Level: <input type=text name=skill>
+	<p class="heading">Description:
+	<textarea rows=5 cols=50 name=description></textarea></p>
+	<p><input type=submit value=Enter></p>
     </form>
 {% endblock %}

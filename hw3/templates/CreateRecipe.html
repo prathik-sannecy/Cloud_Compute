@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Enter Recipe</h2>
+    <form action="{{ url_for('CreateRecipe') }}" method=post>
+	<p class="heading">Title: <input type=text name=title>
+	<p class="heading">Email: <input type=text name=email>
+        <p class="heading">Message:
+	<textarea rows=5 cols=50 name=message></textarea></p>
+	<p><input type=submit value=Sign></p>
+    </form>
+{% endblock %}

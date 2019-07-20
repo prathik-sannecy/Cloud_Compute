@@ -16,5 +16,9 @@ app.add_url_rule('/RecipeList/',
                  view_func=RecipeList.as_view('RecipeList'),
                  methods=['GET'])
 
+app.add_url_rule('/AddRecipe/',
+                 view_func=CreateRecipe.as_view('CreateRecipe'),
+                 methods=['GET', 'POST'])
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)

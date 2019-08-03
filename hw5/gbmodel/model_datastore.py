@@ -32,25 +32,24 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity['name'],entity['email'],entity['date'],entity['message']]
+    return entity
 
 class model(Model):
     def __init__(self):
-        self.client = datastore.Client('cs410c-Prathik-Sannecy')
+        self.client = datastore.Client()
 
     def select(self):
-        query = self.client.query(kind = 'Review')
+        query = self.client.query(kind = 'Recipelist')
         entities = list(map(from_datastore,query.fetch()))
         return entities
 
     def insert(self,name,email,message):
         key = self.client.key('Review')
         rev = datastore.Entity(key)
-        rev.update( {
-            'name': name,
-            'email' : email,
-            'date' : datetime.today(),
-            'message' : message
-            })
+        rev.update( 
+
+{'title': title, 'author': author, 'ingredient': ingredient, 'time': time, 'skill': skill, 'description': description}
+
+            )
         self.client.put(rev)
         return True

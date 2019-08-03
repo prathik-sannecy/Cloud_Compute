@@ -44,7 +44,7 @@ class model(Model):
         return entities
 
     def insert(self,title, author, ingredient, time, skill, description):
-        key = self.client.key('Review')
+        key = self.client.key('Recipelist')
         rev = datastore.Entity(key)
         rev.update( 
 

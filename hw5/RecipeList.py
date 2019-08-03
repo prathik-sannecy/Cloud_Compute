@@ -6,5 +6,6 @@ class RecipeList(MethodView):
     def get(self):
         model = gbmodel.get_model()
         recipes = model.select()
+        print(recipes)
         return render_template('RecipeList.html', recipes=recipes)
 

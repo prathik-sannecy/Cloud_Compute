@@ -17,16 +17,15 @@ from datetime import datetime
 from google.cloud import datastore
 
 def from_datastore(entity):
-    """Translates Datastore results into the format expected by the
+    """Returns Datastore results into the format expected by the
     application.
 
     Datastore typically returns:
         [Entity{key: (kind, id), prop: val, ...}]
 
     This returns:
-        [ name, email, date, message ]
-    where name, email, and message are Python strings
-    and where date is a Python datetime
+        { 'title':title, 'author':author, 'ingredient':ingredient, 'time':time, 'skill':skill, 'description':description }
+    where title, author, ingredient, time, sill, and description are Python Strings 
     """
     if not entity:
         return None
@@ -46,10 +45,13 @@ class model(Model):
     def insert(self,title, author, ingredient, time, skill, description):
         key = self.client.key('Recipelist')
         rev = datastore.Entity(key)
-        rev.update( 
-
-{'title': title, 'author': author, 'ingredient': ingredient, 'time': time, 'skill': skill, 'description': description}
-
-            )
+        rev.update({
+				    'title': title, 
+						'author': author, 
+						'ingredient': ingredient, 
+						'time': time, 
+						'skill': skill, 
+						'description': description
+						})
         self.client.put(rev)
         return True

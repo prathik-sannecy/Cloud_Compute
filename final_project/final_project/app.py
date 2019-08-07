@@ -5,7 +5,7 @@ import flask
 from flask.views import MethodView
 from RecipeBookMainPage import RecipeBookMainPage
 from RecipeList import RecipeList
-from CreateRecipe import CreateRecipe
+from EnterIngredients import EnterIngredients
 
 app = flask.Flask(__name__)       # our Flask app
 
@@ -17,8 +17,8 @@ app.add_url_rule('/RecipeList/',
                  view_func=RecipeList.as_view('RecipeList'),
                  methods=['GET'])
 
-app.add_url_rule('/AddRecipe/',
-                 view_func=CreateRecipe.as_view('CreateRecipe'),
+app.add_url_rule('/EnterIngredients/',
+                 view_func=EnterIngredients.as_view('EnterIngredients'),
                  methods=['GET', 'POST'])
 
 if __name__ == '__main__':

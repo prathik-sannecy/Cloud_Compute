@@ -1,0 +1,33 @@
+    1  git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+    2  sudo apt update
+    3  sudo apt install virtualenv
+    4  sudo apt install python python-dev python3 python3-dev
+    5  wget https://bootstrap.pypa.io/get-pip.py
+    6  sudo python get-pip.py
+    7  pip install --upgrade virtualenv
+    8  sudo pip install --upgrade virtualenv
+    9  cd python-docs-samples/speech/
+   10  cd cloud-client/
+   11  virtualenv env
+   12  source env/bin/activate
+   13  pip install -r requirements.txt
+   14  python quickstart.py 
+   15  cd python-docs-samples/speech/cloud-client/
+   16  python quickstart.py 
+   17  virtualenv env
+   18  source env/bin/activate
+   19  python quickstart.py 
+   20  vim quickstart.py 
+   21  cd ../microphone/
+   22  ls
+   23  vim README.rst
+   24  vim README.rst.in 
+   25  python transcribe_streaming_mic_test.py 
+   26  pip install -r requirements.txt
+   27  python3 transcribe_streaming_mic_test.py 
+   28  python transcribe_streaming_mic_test.py 
+   29  python transcribe_streaming_mic.py 
+   30  vim requirements.txt 
+   31  pip install -r requirements.txt
+   32  pip install requirements.txt
+   33  pip install -r requirements.txt

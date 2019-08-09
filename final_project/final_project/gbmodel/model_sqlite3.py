@@ -1,16 +1,16 @@
 """
-A simple recipes flask app.
-ata is stored in a SQLite database that looks something like the following:
+A simple ingredients flask app.
+Data is stored in a SQLite database that looks something like the following:
 
-+------------+------------------+------------------+----------------+----------------+
-| Title      | Author           | Ingredients      | Time Taken     | Skill Level    |
-+============+==================+==================+----------------+----------------+
-| Pasta      | John Watts       | Tomatoes, Onions | 10min          | Intermediate   |
-+------------+------------------+------------------+----------------+----------------+
++------------+------------------+------------------+
+| Ingredient1| Ingredient2    | Ingredient3        |
++============+================+====================+
+| Pasta      | Tomatoes       | Onions             |
++------------+----------------+--------------------+
 
 This can be created with the following SQL (see bottom of this file):
 
-    create table recipes (title text, author text, ingredient text, time text, skill text, description text);
+    create table ingredient (ingredient1 text, ingredient2 text, ingredient3 text);
 
 """
 from datetime import date
@@ -24,39 +24,35 @@ class model(Model):
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         try:
-            cursor.execute("select count(rowid) from recipes")
+            cursor.execute("select count(rowid) from ingredients")
         except sqlite3.OperationalError:
-            cursor.execute("create table recipes (title text, author text, ingredient text, time text, skill text, "
-                           "description text)")
+            cursor.execute("create table ingredients (ingredient1 text, ingredient2 text, ingredient3 text)")
         cursor.close()
 
     def select(self):
         """
         Gets all rows from the database
-        Each row contains: name, email, date, message
+        Each row contains 3 ingredients
         :return: List of lists containing all rows of database
         """
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM recipes")
+        cursor.execute("SELECT * FROM ingredients")
         return cursor.fetchall()
 
-    def insert(self, title, author, ingredient, time, skill, description):
+    def insert(self, ingredient1, ingredient2, ingredient3):
         """
         Inserts entry into database
-        :param title: String
-        :param author: String
-        :param ingredient: String
-        :param time: String
-        :param skill: String
-        :param description: String
+        :param ingredient1: String
+        :param ingredient2: String
+        :param ingredient3: String
         :return: True
         """
-        params = {'title': title, 'author': author, 'ingredient': ingredient, 'time': time, 'skill': skill, 'description': description}
+        params = {'ingredient1': ingredient1, 'ingredient2': ingredient2, 'ingredient3': ingredient3}
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("insert into recipes (title, author, ingredient, time, skill, description) VALUES (:title, "
-                       ":author, :ingredient, :time, :skill, :description)", params)
+        cursor.execute("insert into ingredients (ingredient1, ingredient2, ingredient3) VALUES (:ingredient1, "
+                       ":ingredient2, :ingredient3)", params)
 
         connection.commit()
         cursor.close()

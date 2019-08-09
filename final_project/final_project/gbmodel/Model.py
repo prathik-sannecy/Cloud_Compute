@@ -6,12 +6,12 @@ class Model():
         """
         pass
 
-    def insert(self, title, author, ingredient, time, skill, description):
+    def insert(self, ingredient1, ingredient2, ingredient3):
         """
         Inserts entry into database
-        :param name: String
-        :param email: String
-        :param message: String
+        :param ingredient1: String
+        :param ingredient2: String
+        :param ingredient3: String
         :return: none
         :raises: Database errors on connection and insertion
         """

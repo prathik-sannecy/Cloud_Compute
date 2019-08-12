@@ -3,7 +3,7 @@ A simple recipe list flask app
 """
 import flask
 from flask.views import MethodView
-from RecipeBookMainPage import RecipeBookMainPage
+from FoodFinderMainPage import FoodFinderMainPage
 from GetFoods import GetFoods
 from GetRestaurants import GetRestaurants
 from EnterIngredients import EnterIngredients
@@ -12,7 +12,7 @@ from EnterFood import EnterFood
 app = flask.Flask(__name__)       # our Flask app
 
 app.add_url_rule('/',
-                 view_func=RecipeBookMainPage.as_view('RecipeBookMainPage'),
+                 view_func=FoodFinderMainPage.as_view('FoodFinderMainPage'),
                  methods=["GET"])
 
 app.add_url_rule('/GetRestaurants/',

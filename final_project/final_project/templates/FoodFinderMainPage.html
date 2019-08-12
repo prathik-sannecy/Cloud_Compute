@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Online Food Finder</h2>
+
+    <h3>Find Food with Ingredients <a href="{{ url_for('EnterIngredients') }}">here</a></h3>
+    <h3>Find Restaurant with Food <a href="{{ url_for('EnterFood') }}">here</a></h3>
+
+{% endblock %}

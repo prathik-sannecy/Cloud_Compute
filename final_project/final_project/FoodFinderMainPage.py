@@ -2,6 +2,6 @@ from flask import render_template
 from flask.views import MethodView
 import gbmodel
 
-class RecipeBookMainPage(MethodView):
+class FoodFinderMainPage(MethodView):
     def get(self):
-        return render_template('RecipeBookMainPage.html')
+        return render_template('FoodFinderMainPage.html')

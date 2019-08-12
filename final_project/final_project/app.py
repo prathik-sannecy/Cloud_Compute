@@ -1,5 +1,5 @@
 """
-A simple recipe list flask app
+A flask app for finding foods and restaurants
 """
 import flask
 from flask.views import MethodView

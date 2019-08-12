@@ -9,7 +9,7 @@ class EnterIngredients(MethodView):
     def post(self):
         """
         Accepts POST requests, and processes the form;
-        Redirect to the main page Food Finder when completed.
+        Redirect to Get Foods page when completed.
         """
         model = gbmodel.get_model()
         model.insert(request.form['ingredient1'], request.form['ingredient2'], request.form['ingredient3'])

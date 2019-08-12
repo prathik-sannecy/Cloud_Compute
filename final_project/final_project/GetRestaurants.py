@@ -8,6 +8,9 @@ import yelp_api_sample # code taken from https://github.com/Yelp/yelp-fusion/blo
 length = 20
 
 def getKey(file_name):
+    """
+    Returns: String of the API key from a specified file
+    """
     with open(file_name) as f:
         key = f.readline().strip()
         print(key)
@@ -17,14 +20,21 @@ def getKey(file_name):
 
 class GetRestaurants(MethodView):
     def get(self):
+        """
+        Gets the food and location from the backend storage. Using this information, it queries the Yelp API to find nearby restaurants with that food
+
+        Returns: webpage to render
+        """
+        # Ge the food and location from storage
         model = foodmodel.get_model()
         foods = model.select()
         food = foods[-1][0] 
         location = foods[-1][1] 
 
-
+        # Query Yelp for busineeses
         businesses = yelp_api_sample.search(getKey('yelp.key'), food, location)
-
+        
+        # Get the retaurant names
         restaurants = []
         i = 0
         while i < 5:
@@ -33,7 +43,6 @@ class GetRestaurants(MethodView):
                 i += 1
             except:
                 break
-
         if i == 0:
             restaurants.append({'name' : "No foods found"})
         

@@ -23,7 +23,7 @@ class GetRestaurants(MethodView):
         location = foods[-1][1] 
 
 
-        businesses = search(getKey('yelp.key'), term, location)
+        businesses = yelp_api_sample.search(getKey('yelp.key'), food, location)
 
         restaurants = []
         i = 0
@@ -37,4 +37,4 @@ class GetRestaurants(MethodView):
         if i == 0:
             restaurants.append({'name' : "No foods found"})
         
-        return render_template('RestaurantList.html', foods=foods)
+        return render_template('RestaurantList.html', restaurants=restaurants)

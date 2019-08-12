@@ -12,5 +12,5 @@ class EnterFood(MethodView):
         Redirect to GetRestaurants when completed.
         """
         model = foodmodel.get_model()
-        model.insert(request.form['food'], request.food['location'])
+        model.insert(request.form['food'], request.form['location'])
         return redirect(url_for('GetRestaurants')) 

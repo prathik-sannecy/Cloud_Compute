@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Enter Food To Eat</h2>
+    <form action="{{ url_for('EnterFood') }}" method=post>
+	<p class="heading">Food: <input type=text name=food>
+	<p class="heading">Location: <input type=text name=location>
+	<p><input type=submit value=Enter></p>
+    </form>
+{% endblock %}

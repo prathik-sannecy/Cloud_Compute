@@ -27,6 +27,7 @@ class GetFoods(MethodView):
         ingredient2 = ingredients[-1][1] 
         ingredient3 = ingredients[-1][2] 
         url = "https://api.nal.usda.gov/ndb/search/?format=json&q=" + ingredient1 + " " + ingredient2 + " " + ingredient3 + "&sort=n&max=25&offset=0&api_key="+getKey("datagov.key")
+        print(url)
         getFoods = getUrl(url)
         try:
             foods = [{'name' : getFoods.get("list").get("item")[i].get("name")} for i in range(0, len(getFoods.get("list").get("item")))]

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Restaurants Found</h2>
+    {% for restaurant in restaurants %}
+        <p class=restaurant>
+            {{ restaurant.name }}<br>
+        </p>
+    {% endfor %}
+<h3><a href="{{ url_for('FoodFinderMainPage') }}">Main Page</a></h3>
+{% endblock %}

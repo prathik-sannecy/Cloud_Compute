@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Foods With Those Ingredients</h2>
+    {% for food in foods %}
+        <p class=food>
+            {{ food.name }}<br>
+        </p>
+    {% endfor %}
+<h3><a href="{{ url_for('FoodFinderMainPage') }}">Main Page</a></h3>
+{% endblock %}
